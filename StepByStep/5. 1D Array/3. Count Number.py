@@ -1,10 +1,12 @@
-a = int(input())
-b = int(input())
-c = int(input())
+inputArr = [0]*3
+for i in range(len(inputArr)):
+    inputArr[i] = int(input())
+
+num = 1
+for i in range(len(inputArr)):
+    num *= inputArr[i]
 
 count_list = [0]*10
-
-num = a*b*c
 while(num>0):
     comp_num = num%10
     for i in range(10):
