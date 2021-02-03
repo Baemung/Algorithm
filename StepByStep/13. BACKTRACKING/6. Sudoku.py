@@ -20,7 +20,7 @@ def dfs(idx):
             for n in rows:
                 print(n, end=' ')
             print()
-        return
+        sys.exit(0)
     for i in range(1, 10):
         nx = zeros[idx][1]
         ny = zeros[idx][0]
