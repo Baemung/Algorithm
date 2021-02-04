@@ -1,23 +1,13 @@
 import sys
 input = sys.stdin.readline
 
-def prime(n):
-    for i in range(2,n+1):
-        while(n>1):
-            if(n%i == 0):
-                n //= i
-                print(i)
-            else:
-                break
-
-def fac(n):
-    f,k,cnt = 1,0,0
-    while(n): f,n = f*n, n-1
-    return f
-
-def com(n,m):
-    c = fac(n)//(fac(n-m)*fac(m))
-    return c
+def cnt(num, div):
+    ans = 0
+    while(num):
+        num //= div
+        ans += num
+    return ans
 
 n,m = map(int, input().split())
-print(com(n,min(m,n-m)))
+if(m == 0): print(0)
+else: print(min(cnt(n,2)-cnt(m,2)-cnt(n-m,2), cnt(n,5)-cnt(m,5)-cnt(n-m,5)))
