@@ -4,13 +4,13 @@ input = sys.stdin.readline
 def symbol(n):
     global s
     for i in range(s+1,n+1):
-        stack_.append(i)
+        stack.append(i)
         sym.append('+')
-    if (stack_.pop() != n): return 1
+    if (stack.pop() != n): return 1
     sym.append('-')
     s = max(s,n)
 
-stack_,sym,s = [],[],0
+stack,sym,s = [],[],0
 for i in range(int(input())):
     if(symbol(int(input()))):
         print('NO')
