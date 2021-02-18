@@ -6,15 +6,13 @@ def dq(start, end):
     if end-start < 1:
         return
 
-    height = min(case[start:end+1])
+    height = max(case)
     for i in range(start,end+1):
-        if case[i] == height:
+        if case[i] < height:
             low = i
-            break
-        elif case[end-i] == height:
-            low = end-i
-            break
+            height = case[i]
     res = max(res, height*(end-start+1))
+    
     dq(start, low-1)
     dq(low+1, end)
     return
