@@ -2,9 +2,10 @@ import sys
 input = sys.stdin.readline
 
 def parametric_search(left, right):
-    pivot = (left + right)//2
     if left > right:
         return right
+
+    pivot = (left + right)//2
     res = 0
     for i in Tree:
         if i - pivot >= 0:
