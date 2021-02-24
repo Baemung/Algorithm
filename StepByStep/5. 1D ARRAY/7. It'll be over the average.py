@@ -1,16 +1,12 @@
 num = int(input())
-
 for i in range(num):
-    case = [int(score) for score in input().split()]
-    total = 0
-    cnt = 0
-    for j in range(case[0]):
-        total += case[j+1]
-
-    mean = total/case[0]
-    for j in range(case[0]):
-        if(case[j+1] > mean):
+    n, *case = list(map(int, input().split()))
+    total, cnt = 0, 0
+    for j in range(n):
+        total += case[j]
+    mean = total/n
+    for j in range(n):
+        if case[j] > mean:
             cnt += 1
-    pct = round((cnt/case[0])*100,3)
-
+    pct = round((cnt/n)*100, 3)
     print("%0.3f"%pct+"%")

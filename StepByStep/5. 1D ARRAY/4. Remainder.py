@@ -1,9 +1,3 @@
-inputArr = [0]*10
-for i in range(len(inputArr)):
-    inputArr[i] = int(input())
-
-rem = []
-for i in range(len(inputArr)):
-    rem.append(inputArr[i]%42)
-
+inputArr = [int(input()) for _ in range(10)]
+rem = [inputArr[i]%42 for i in range(10)]
 print(len(set(rem)))
