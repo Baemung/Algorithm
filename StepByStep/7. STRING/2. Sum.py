@@ -1,8 +1,6 @@
 num = int(input())
 code = input()
-sum = 0
-
+sum_ = 0
 for i in range(num):
-    sum += int(code[i])
-
-print(sum)
+    sum_ += int(code[i])
+print(sum_)

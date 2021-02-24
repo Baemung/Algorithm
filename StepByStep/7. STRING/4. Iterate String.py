@@ -1,5 +1,4 @@
 testCase = int(input())
-
 for i in range(testCase):
     a, b = input().split()
     new_b = ''
