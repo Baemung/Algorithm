@@ -1,2 +1,3 @@
-num=[int(i) for i in input()]
-for i in sorted(num,reverse=True):print(i,end='')
+num = sorted([int(i) for i in input()], reverse=True)
+for i in num:
+    print(i, end='')

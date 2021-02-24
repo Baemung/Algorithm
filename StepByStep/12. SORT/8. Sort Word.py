@@ -1,9 +1,3 @@
-w=[]
-for i in range(int(input())):
-    w.append(input())
-
-w = list(set(w))
-w.sort(key=lambda x:(len(x),x))
-
+w = sorted(list(set(input() for _ in range(int(input())))), key=lambda x:(len(x),x)) #길이, 사전순
 for i in w:
     print(i)

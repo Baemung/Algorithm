@@ -1,8 +1,6 @@
-p=[]
-for i in range(int(input())):
-    p.append([i for i in input().split()])
+import sys
+input = sys.stdin.readline
 
-p.sort(key=lambda x:(int(x[0])))
-
+p = sorted(list(input().split() for _ in range(int(input()))), key=lambda x:int(x[0]))
 for i in range(len(p)):
-    print(int(p[i][0]),p[i][1])
+    print(int(p[i][0]), p[i][1])

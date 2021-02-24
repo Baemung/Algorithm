@@ -1,8 +1,6 @@
-li=[]
-for i in range(int(input())):
-    li.append([int(i) for i in input().split()])
+import sys
+input = sys.stdin.readline
 
-li.sort(key=lambda x:(x[1],x[0]))
-
+li = sorted([list(map(int, input().split())) for _ in range(int(input()))], key=lambda x:(x[1], x[0]))
 for i in range(len(li)):
     print(li[i][0],li[i][1])

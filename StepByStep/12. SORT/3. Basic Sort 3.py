@@ -1,11 +1,10 @@
 import sys
+input = sys.stdin.readline
 
 A=[0]*10001
-
-for i in range(int(sys.stdin.readline())):
-    A[int(sys.stdin.readline())]+=1
-
+for _ in range(int(input())):
+    A[int(input())] += 1
 for i in range(len(A)):
-    if(A[i]!=0):
-        for j in range(A[i]):
+    if A[i] != 0:
+        for _ in range(A[i]):
             print(i)
