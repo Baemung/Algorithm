@@ -1,8 +1,8 @@
 x, y = int(input()), int(input())
-quadrant1 = x>0 and y>0
-quadrant2 = x<0 and y>0
-quadrant3 = x<0 and y<0
-quadrant4 = x>0 and y<0
+quadrant1 = x > 0 and y > 0
+quadrant2 = x < 0 and y > 0
+quadrant3 = x < 0 and y < 0
+quadrant4 = x > 0 and y < 0
 if quadrant1: print("1")
 elif quadrant2: print("2")
 elif quadrant3: print("3")
