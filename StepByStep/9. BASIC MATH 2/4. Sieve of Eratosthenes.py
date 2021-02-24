@@ -1,11 +1,9 @@
-a,b = map(int, input().split())
-
-p = set(range(2, b+1))
-for i in range(2, int(b**0.5)+1):
-    if(i in p):
-        p -= set(range(2*i, b+1, i))
-p -= set(range(a))
-p = sorted(list(p))
-
-for j in p:
-    print(j)
+M, N = map(int, input().split())
+P = set(range(2, N+1))
+for i in range(2, int(N**0.5)+1):
+    if i in P:
+        P -= set(range(2*i, N+1, i))
+P -= set(range(M))
+P = sorted(list(P))
+for i in P:
+    print(i)

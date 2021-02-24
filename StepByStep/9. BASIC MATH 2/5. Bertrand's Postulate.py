@@ -1,15 +1,13 @@
-def countP(n):
+def count_prime(n):
     p = set(range(2, 2*n+1))
-    for i in range(2, 2*int(n ** 0.5)+1):
-        if(i in p):
+    for i in range(2, 2*int(n**0.5)+1):
+        if i in p:
             p -= set(range(2*i, 2*n+1, i))
     p -= set(range(n+1))
-
     return len(p)
 
-while(1):
+while True:
     num = int(input())
-    if(num == 0):
+    if num == 0:
         break
-
-    print(countP(num))
+    print(count_prime(num))

@@ -1,17 +1,18 @@
-num = int(input())
+import sys
+input = sys.stdin.readline
 
-for i in range(num):
-    n = int(input())
-    p = set(range(2, n+1))
-    for j in range(2, int(n**0.5)+1):
-        if(j in p):
-            p -= set(range(2*j, n+1, j))
-
-    x,gap = 0,n/2
-    for a in p:
-        b = abs(n-a)
-        if(b in p and abs(a-b)<gap):
-            gap = abs(a-b)
-            x = a
-
-    print(x, n-x)
+n = int(input())
+p_list = [int(input()) for _ in range(n)]
+p = set(range(2, max(p_list)+1))
+for i in range(2, int(max(p_list)**0.5)+1):
+    if i in p:
+        p -= set(range(2*i, max(p_list)+1, i))
+for a in p_list:
+    k = 0
+    for x in sorted(list(p)):
+        y = a-xx
+        if y-x < 0:
+            break
+        elif y in p:
+            k = y
+    print(a-k, k)

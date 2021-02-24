@@ -1,10 +1,4 @@
-a = []
-b = []
-for i in range(3):
-    x, y = map(int, input().split())
-    a.append(x)
-    b.append(y)
-
-a = sorted(a, key=a.count)
-b = sorted(b, key=b.count)
-print(a[0], b[0])
+loc = list(zip(*[list(map(int, input().split())) for _ in range(3)]))
+a = sorted(list(loc[0]), key=list(loc[0]).count)[0]
+b = sorted(list(loc[1]), key=list(loc[1]).count)[0]
+print(a, b)
