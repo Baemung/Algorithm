@@ -1,11 +1,9 @@
 def SoD(n):
     for i in range(1,n):
-        sum = 0
+        sum_ = 0
         for j in str(i):
-            sum += int(j)
-        if(sum+i == n):
+            sum_ += int(j)
+        if sum_+i == n:
             return i
     return 0
-
-num = int(input())
-print(SoD(num))
+print(SoD(int(input())))
