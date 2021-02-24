@@ -1,12 +1,10 @@
 num = int(input())
-
 for i in range(num):
-    w, h, n = map(int, input().split())
-    if(n % w == 0):
-        a = w
-        b = n//w
-    else:
-        a = n % w
-        b = (n // w) + 1
-
+    H, W, N = map(int, input().split())
+    if N%H == 0: #0층이 없으니, 꼭대기 층
+        a = H
+        b = N//H
+    else: #나머지 층
+        a = N%H
+        b = (N//H)+1
     print("%d%02d"%(a, b))
