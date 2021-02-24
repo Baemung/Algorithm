@@ -1,4 +1,4 @@
-hour,min = map(int, input().split())
+hour, min = map(int, input().split())
 if min-45 < 0:
     setH = hour-1
     setM = min+15
