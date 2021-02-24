@@ -1,5 +1,5 @@
 def fib(num):
-    if(num <= 1):
+    if num <= 1:
         return num
     return fib(num-2) + fib(num-1)
 
