@@ -1,17 +1,22 @@
 import sys
 input = sys.stdin.readline
 
-num,op = "",""
+num, op = "", ""
 for i in input():
-    if(i.isdigit()): num += i
-    else:
+    if i.isdigit():
+        num += i
+    elif i != '\n':
         num += ' '
         op += i
-num = num.split(' ')[:-1]
-sum = int(num[0])
+num = num.split(' ')
+res = int(num[0])
 pm = 0
 for i in range(len(num)-1):
-    if(op[i] == '-'): pm = 1
-    if(pm): sum -= int(num[i+1])
-    else: sum += int(num[i+1])
-print(sum)
+    if op[i] == '-':
+        pm = 1
+    if pm:
+        res -= int(num[i+1])
+    else:
+        pm = 0
+        res += int(num[i+1])
+print(res)

@@ -1,11 +1,11 @@
 import sys
 input = sys.stdin.readline
 
-n, v = map(int, input().split())
-u = [int(input()) for _ in range(n)]
+N, K = map(int, input().split())
+A = [int(input()) for _ in range(N)]
 cnt = 0
-for i in range(n-1,-1,-1):
-    if(v // u[i] > 0):
-        cnt += v // u[i]
-        v = v % u[i]
+for i in range(N-1, -1, -1):
+    if K//A[i] > 0:
+        cnt += K//A[i]
+        K = K%A[i]
 print(cnt)

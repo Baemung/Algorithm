@@ -1,10 +1,10 @@
 import sys
 input = sys.stdin.readline
 
-n = int(input())
-t = sorted(list(map(int, input().split())))
-w, s = 0,0
-for i in t:
-    w += i
-    s += w
-print(s)
+N = int(input())
+P = sorted(list(map(int, input().split())))
+wait, time = 0,0
+for t in P:
+    wait += t
+    time += wait
+print(time)
