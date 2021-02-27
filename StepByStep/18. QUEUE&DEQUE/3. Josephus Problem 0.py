@@ -2,16 +2,14 @@ import sys
 from collections import deque
 input = sys.stdin.readline
 
-n, k = map(int, input().split())
-deq = deque()
-for i in range(1,n+1): deq.append(i)
+N, K = map(int, input().split())
+deq_ = deque(i for i in range(1, N+1))
 idx = 0
-
 print('<', end='')
-while(1):
-    idx = ((idx + k)-1)%len(deq)
-    if(len(deq)==1):
-        print(deq[idx], end='>')
+while True:
+    idx = ((idx+K)-1)%len(deq_)
+    if len(deq_) == 1:
+        print(deq_[idx], end='>')
         break
-    print(deq[idx], end=', ')
-    deq.remove(deq[idx])
+    print(deq_[idx], end=', ')
+    deq_.remove(deq_[idx])
