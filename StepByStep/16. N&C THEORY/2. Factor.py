@@ -1,6 +1,6 @@
 import sys
 input = sys.stdin.readline
 
-cnt = int(input())
-num = sorted(list(map(int, input().split())))
-print(num[0]*num[-1])
+num = int(input())
+factor = sorted(list(map(int, input().split())))
+print(factor[0]*factor[-1])
