@@ -6,7 +6,6 @@ N = int(input())
 A = dict(Counter(list(map(int, input().split()))))
 M = int(input())
 B = list(map(int, input().split()))
-
 for i in B:
     try:
         print(A[i], end=' ')
