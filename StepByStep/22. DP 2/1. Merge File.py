@@ -26,6 +26,7 @@ for _ in range(int(input())):
             dp[i][j] += sum_[j+1]-sum_[i] #sum_[j+1]-sum_[i]은 i부터 j까지 모두 합한 값
     print(dp[0][-1])
 '''
+
 '''
 - Knuth's Optimization O(n^2) -
 Knuth's Optimization은 Dynamic Programming의 점화식이 아래와 같은 특정 조건을 만족하는 경우 사용할 수 있는 "최적화" 기법이다.
@@ -46,6 +47,7 @@ for div in range(A[i][j-1], A[i+1][j]+1)로 바꿔줄 수 있게 된다.
 그렇게 되면 이 반복문은 '상수' 번 수행하므로 
 O(n^3)의 시간복잡도에서 O(n^2) 로 줄어들게 된다.
 '''
+
 for _ in range(int(input())):
     K, file = int(input()), list(map(int, input().split()))
     sum_ = [0]*(K+1)

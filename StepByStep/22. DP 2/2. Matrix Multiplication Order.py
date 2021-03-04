@@ -1,9 +1,10 @@
+import sys
+input = sys.stdin.readline
+
 '''
 - 일반적인 DP 풀이 O(n^3) -
 앞선 Merge File과 풀이가 거의 동일하다.
 '''
-import sys
-input = sys.stdin.readline
 
 N = int(input())
 mat = [list(map(int, input().split())) for _ in range(N)]
