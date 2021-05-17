@@ -26,6 +26,7 @@ for i in range(n):
         # 처음에는 tree[i]로 해주었더니 틀렸습니다가 나와서 찾아보니
         # 테스트케이스 입력이 1,2,3,4,,, 처럼 순차적으로 주어진다는 명시가 없었다.
         # tree[node[0]] 로 수정해주니 간단하게 해결되었다.
+print(tree)
 
 dist, node = bfs(1)
 dist, node = bfs(node)
