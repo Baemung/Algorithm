@@ -1,23 +1,23 @@
 import sys
 input = sys.stdin.readline
 
-class Node: # 바이너리 트리 클래스 생성
+class Node:  # 바이너리 트리를 구성 할 노드 클래스 생성
     def __init__(self, data):
         self.data = data;
         self.left = None;
         self.right = None;
 
-def preorder(node): # 전위순회
+def preorder(node):  # 전위 순회
     print(node.data, end='')
     if node.left != '': preorder(node.left)
     if node.right != '': preorder(node.right)
 
-def inorder(node): # 중위순회
+def inorder(node):  # 중위 순회
     if node.left != '': inorder(node.left)
     print(node.data, end='')
     if node.right != '': inorder(node.right)
 
-def postorder(node): # 후위순회
+def postorder(node):  # 후위 순회
     if node.left != '': postorder(node.left)
     if node.right != '': postorder(node.right)
     print(node.data, end='')
@@ -26,7 +26,7 @@ n = int(input())
 tree_li = []
 for i in range(n):
     data = input().split()
-    node = Node(data[0]) # 부모 노드는 데이터로 저장하여 클래스 생성
+    node = Node(data[0])  # 부모 노드는 데이터로 저장하여 클래스 생성
 
     # 자식 노드들 중 . 으로 입력된 데이터는 공백으로 처리
     if data[1] == '.': data[1] = ''
@@ -42,8 +42,10 @@ for i in range(n):
 for i in range(n):
     for j in range(n):
         # 트리 리스트들의 부모 노드와 자식 노드들을 서로 매칭시켜 트리 구성
-        if tree_li[i].data == tree_li[j].left: tree_li[j].left = tree_li[i]
-        elif tree_li[i].data == tree_li[j].right: tree_li[j].right = tree_li[i]
+        if tree_li[i].data == tree_li[j].left:
+            tree_li[j].left = tree_li[i]
+        elif tree_li[i].data == tree_li[j].right:
+            tree_li[j].right = tree_li[i]
 
 preorder(tree_li[0])
 print()
