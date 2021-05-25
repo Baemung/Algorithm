@@ -24,8 +24,7 @@ n = int(input())
 inorder = list(map(int, input().split()))
 postorder = list(map(int, input().split()))
 
-# 후위 순회의 끝값이 중위 순회의 어디 인덱스에 위치한지 확인을 위해
-# 중위 순회의 값들의 인덱스값을 저장
+# 후위 순회의 끝값이 중위 순회의 어디 인덱스에 위치한지 확인을 위해 중위 순회의 값들의 인덱스값을 저장
 position = [0]*(n+1)
 for i in range(n):
     position[inorder[i]] = i
