@@ -11,6 +11,7 @@ public class Solution2493_배문규 {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
 		
 		int N = Integer.parseInt(br.readLine());
 		
@@ -28,7 +29,7 @@ public class Solution2493_배문규 {
 			stack.push(i);
 		}
 		
-		for(int i : result)sb.append(i+" ");
+		for(int i : result) sb.append(i+" ");
 		System.out.print(sb.toString());
 	}
 

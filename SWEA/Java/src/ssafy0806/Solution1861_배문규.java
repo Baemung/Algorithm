@@ -21,15 +21,20 @@ public class Solution1861_배문규 {
 		for(int tc = 1; tc <= T; tc++) {
 			N = Integer.parseInt(br.readLine());
 			map = new int[N][N];
-			/*
-			 만약 1에서 4까지 도달했을 때, 1에 저장된 값에 1을 더한값을 4에 저장할 것이므로
-			 이전까지의 값을 이용해 다음 값을 구하는 다이나믹 프로그래밍 알고리즘을 선택
-			 */
 			dp = new int[N][N];
+			int _min = Integer.MAX_VALUE;
+			int[] _minIdx = new int[2];
 			
 			for(int i = 0; i < N; i++) {
 				StringTokenizer st = new StringTokenizer(br.readLine());
-				for(int j = 0; j < N; j++) map[i][j] = Integer.parseInt(st.nextToken());
+				for(int j = 0; j < N; j++) {
+					map[i][j] = Integer.parseInt(st.nextToken());
+					if(_min < map[i][j]) {
+						_min = map[i][j];
+						_minIdx[0] = i;
+						_minIdx[1] = j;
+					}
+				}
 			}
 			
 			// 최종 출력에 필요한 시작지점과 최대값 
