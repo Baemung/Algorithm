@@ -26,35 +26,23 @@ public class BaekOJ9019 {
 			A = Integer.parseInt(st.nextToken());
 			B = Integer.parseInt(st.nextToken());
 			
+			//sb를 null -> "" 로 초기화
+			result[A] = "";
             queue.offer(A);
 			while(result[B] == null && !queue.isEmpty()) {
-				int front = queue.poll();
-				
 				// dequeue한 값으로 DSLR 값들을 모두 구함
+				int front = queue.poll();
 				int D = (front*2)%10000;
 				int S = (front+9999)%10000;
-				int L = (front/1000)+(front%1000)*10;
-				int R = (front/10)+(front%10)*1000;
+				int L = (front/1000) + (front%1000)*10;
+				int R = (front/10) + (front%10)*1000;
 				
 				// D -> S -> L -> R 순으로 enqueue하여 BFS
-				if(result[D] == null) {
-					queue.offer(D);
-					result[D] = result[front]+"D";
-				}
-				if(result[S] == null) {
-					queue.offer(S);
-					result[S] = result[front]+"S";
-				}
-				if(result[L] == null) {
-					queue.offer(L);
-					result[L] = result[front]+"L";
-				}
-				if(result[R] == null) {
-					queue.offer(R);
-					result[R] = result[front]+"R";
-				}
+				if(result[D] == null) { queue.offer(D); result[D] = result[front]+"D"; }
+				if(result[S] == null) { queue.offer(S); result[S] = result[front]+"S"; }
+				if(result[L] == null) { queue.offer(L); result[L] = result[front]+"L"; }
+				if(result[R] == null) { queue.offer(R); result[R] = result[front]+"R"; }
 			}
-			
 			sb.append(result[B]+"\n");
 		}
 		
