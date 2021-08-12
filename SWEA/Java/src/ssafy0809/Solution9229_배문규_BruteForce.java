@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Solution9229_배문규_Greedy {
+public class Solution9229_배문규_BruteForce {
 	
 	static int N, M;
 	
