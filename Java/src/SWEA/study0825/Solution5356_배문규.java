@@ -21,16 +21,17 @@ public class Solution5356_배문규 {
 		T = Integer.parseInt(br.readLine());
 		for(int tc = 1; tc <= T; tc++) {
 			String[] input = new String[5];
+			// 최대 길이
 			int maxlen = -1;
 			for(int i = 0; i < 5; i++) {
 				input[i] = br.readLine();
-				if(maxlen < input[i].length()) maxlen = input[i].length();
+				if(maxlen < input[i].length()) maxlen = input[i].length(); // 최대 길이 구함
 			}
 			
 			sb.append("#").append(tc).append(" ");
-			for(int i = 0; i < maxlen; i++) {
-				for(int j = 0; j < 5; j++) {
-					if(input[j].length() <= i) continue;
+			for(int i = 0; i < maxlen; i++) { // 가로 - 최대길이 만큼 반복
+				for(int j = 0; j < 5; j++) { // 세로  - 5
+					if(input[j].length() <= i) continue; // 해당 문자열이 끝나면 continue
 					sb.append(input[j].charAt(i));
 				}
 			}
