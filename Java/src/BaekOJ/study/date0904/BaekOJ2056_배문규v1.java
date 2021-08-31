@@ -4,24 +4,40 @@ import java.io.*;
 import java.util.*;
 
 /*
- * 어... 맞는데 자꾸 틀렸다고 하네요...
- * 지금 방식을 저는 이해가 잘돼서 사용하는데, 틀려도 왜 틀렸는지 디버깅을 못하겠습니다.
- * 그래서 위상 정렬 문제에 접근하는 방식을 Vertex간 link 방식으로 바꿔야 할 듯 합니다.
- * 일단 이상태로 그냥 PR합니다 ㅠㅠ
+ * 해당 vertex로 들어오는 vertex들이 모두 dp값이 확정이라고 생각하였는데 그렇지 않은 케이스가 존재했음
+ * 5
+ * 1 0
+ * 2 2 1 3
+ * 3 1 4
+ * 4 0
+ * 5 1 2
+ * 가 바로 그 반례
+ * 아직 dp값이 확정되기 전인데 queue를 모두 poll 해주어서 문제가 발생한 것 이었다.....
+ * 
+ * 그래서  in, out 모두  queue에서 list로 변경해주고 foreach문으로 dp값을 갱신
+ * 그리고 해당 vertex 만 remove 해주고 in 사이즈를 체크해서 enqueue하니까 통과..
+ * 다만, in out 두개의 리스트 필드를 관리하니 메모리나 시간에서 오버헤드가 심해서 vertex자체를 link하는 방법으로 새로 풀었음.
+ * 
+ * 메모리 	시간
+ * 109260	1028
  */
 
 class Work{
 	int num;
 	int time;
-	Queue<Integer> out = new ArrayDeque<Integer>(); // 해당 vertex가 진출하는 vertex
-	Queue<Integer> in = new ArrayDeque<Integer>(); // 해당 vertex로 진입하는 vertex
+	List<Integer> out = new ArrayList<Integer>(); // 해당 vertex가 진출하는 vertex
+	List<Integer> in = new ArrayList<Integer>(); // 해당 vertex로 진입하는 vertex
 	
 	Work(int num){
 		this.num = num;
 	}
+	
+	public boolean hasIn() {
+		return in.size() != 0 ? true : false;
+	}
 }
 
-public class BaekOJ2056_배문규 {
+public class BaekOJ2056_배문규v1 {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringBuilder sb = new StringBuilder();
 	static StringTokenizer st = null;
@@ -43,8 +59,8 @@ public class BaekOJ2056_배문규 {
 			int num = Integer.parseInt(st.nextToken());
 			for(int j = 0; j < num; j++) {
 				int out = Integer.parseInt(st.nextToken());
-				works[out].out.offer(in); // 진출 => 진입 edge
-				works[in].in.offer(out); // 진입 <= 진출 edge
+				works[out].out.add(in); // 진출 => 진입 edge
+				works[in].in.add(out); // 진입 <= 진출 edge
 			}
 		}
 		
@@ -59,16 +75,11 @@ public class BaekOJ2056_배문규 {
 		}
 		
 		while(!queue.isEmpty()) {
-			Work work = queue.poll(); // 진입 edge가 없는 vertex들, dp값 확정
-			
-			while(!work.out.isEmpty()) { 
-				int out = work.out.poll(); // 해당 vertex가 진출하여 도착한 vertex들
-				while(!works[out].in.isEmpty()) { 
-					int in =  dp[works[out].in.poll()]; // 도착한 vertex로 진출하는 vertex들의 확정 dp값
-					// 자신으로 오는 vertex들 중 시간이 가장 오래 걸리는 vertex를 선택하여 자신의 시간을 더해 자신의 dp값 갱신
-					dp[out] = dp[out] < works[out].time + in ? dp[out] = works[out].time + in : dp[out];
-				}
-				queue.offer(works[out]); // 자신에게 진입하는 edge를 다 끊고 dp값을 확정지은 뒤 queue에 enqueue
+			Work work = queue.poll(); 
+			for(int in : work.out) {
+				dp[in] = dp[in] < works[in].time + dp[work.num] ? works[in].time + dp[work.num] : dp[in];
+				works[in].in.remove(works[in].in.indexOf(work.num));
+				if(!works[in].hasIn()) queue.offer(works[in]); 
 			}
 		}
 		
