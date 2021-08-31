@@ -55,5 +55,4 @@ public class Solution9229_배문규_Combination {
 		}
 		return num;
 	}
-
 }
