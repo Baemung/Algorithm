@@ -4,10 +4,13 @@ import java.io.*;
 import java.util.*;
 
 /*
- * V = 1000, E = 100,000
+ * V = 1,000, E = 100,000
  * 크루스칼 : O(ElogE) = 10만 * 16 = 160만
  * 프림 : ElogV ~ V^2 = 둘 다 100만
  * 이 문제는 프림이 유리함
+ * 
+ * 1197과 동일하게 풀었으나
+ * 크루스칼 연습용으로 그냥 한번 더 짜봄
  * 
  * 메모리 	시간
  * 	49936	680
@@ -26,7 +29,7 @@ class Edge implements Comparable<Edge>{
 	
 	@Override
 	public int compareTo(Edge o) {
-		return this.weight-o.weight;
+		return Integer.compare(this.weight, o.weight);
 	}
 }
 
