@@ -55,7 +55,5 @@ public class DijkstraTest {
 			}
 		}
 		System.out.println(distance[end]);
-		
 	}
-
 }
