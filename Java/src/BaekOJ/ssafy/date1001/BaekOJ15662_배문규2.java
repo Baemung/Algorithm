@@ -14,39 +14,31 @@ public class BaekOJ15662_배문규2 {
 	static boolean gear[][], check[];
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		T = Integer.parseInt(br.readLine());
-		for(int tc = 1; tc <= T; tc++) {
-			K = Integer.parseInt(br.readLine());
-
-			gear = new boolean[5][8];
-			for(int i = 1; i <= 4; i++) {
-				st = new StringTokenizer(br.readLine());
-				for(int j = 0; j < 8; j++) {
-					if(Integer.parseInt(st.nextToken()) == 1) gear[i][j] = true;
-					else gear[i][j] = false;
-				}
+		gear = new boolean[5][8];
+		for(int i = 1; i <= 4; i++) {
+			String str = br.readLine();
+			for(int j = 0; j < 8; j++) {
+				if(str.charAt(j)-'0' == 1) gear[i][j] = true;
+				else gear[i][j] = false;
 			}
-			
-			check = new boolean[5];
-			for(int i = 0; i < K; i++) {
-				st = new StringTokenizer(br.readLine());
-				gearNum = Integer.parseInt(st.nextToken());
-				dir = Integer.parseInt(st.nextToken());
-				
-				Arrays.fill(check, false);
-				rotate(gearNum, dir);
-			}
-			
-			result = 0;
-			for(int i = 1; i <= 4; i++) {
-				if(gear[i][0]) {
-					result += Math.pow(2, i-1);
-				}
-			}
-			
-			sb.append("#").append(tc).append(" ").append(result).append("\n");
 		}
-		System.out.println(sb);
+		
+		K = Integer.parseInt(br.readLine());
+		check = new boolean[5];
+		for(int i = 0; i < K; i++) {
+			st = new StringTokenizer(br.readLine());
+			gearNum = Integer.parseInt(st.nextToken());
+			dir = Integer.parseInt(st.nextToken());
+			
+			Arrays.fill(check, false);
+			rotate(gearNum, dir);
+		}
+		
+		result = 0;
+		for(int i = 1; i <= 4; i++) {
+			if(gear[i][0]) result += 1<<(i-1);
+		}
+		System.out.println(result);
 	}
 	
 	public static void rotate(int gearNum, int dir) {

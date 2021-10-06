@@ -66,8 +66,8 @@ public class BaekOJ15662_배문규 {
 		boolean temp;
 		
 		if(dir == 1) {
-			temp = gear[gearNum][7];
 			idx = 8;
+			temp = gear[gearNum][7];
 			while(--idx > 0) gear[gearNum][idx] = gear[gearNum][idx-1];
 			gear[gearNum][0] = temp;
 		}
