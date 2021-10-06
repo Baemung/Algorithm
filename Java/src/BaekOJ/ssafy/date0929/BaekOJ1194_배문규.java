@@ -20,7 +20,7 @@ public class BaekOJ1194_배문규 {
 		M = Integer.parseInt(st.nextToken());
 		
 		map = new char[N+2][M+2];
-		check = new boolean[N+2][M+2][64];
+		check = new boolean[N+2][M+2][1<<6];
 		for(int i = 0; i < N+2; i++) Arrays.fill(map[i], '#');
 
 		for(int i = 1; i <= N; i++) {
