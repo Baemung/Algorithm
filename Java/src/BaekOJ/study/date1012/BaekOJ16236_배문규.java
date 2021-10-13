@@ -4,6 +4,8 @@ import java.io.*;
 import java.util.*;
 
 /*
+ * 백준 16236 : 아기 상어
+ * 
  * 로직은 생각보다 단순해보이는데 실제 구현까지 머리가 너무 복잡했던 문제...
  *  1. bfs로 최단거리로 먹을 수 있는 생선 일단 다먹음
  *  2. bfs로 거리는 모두 최단거리니까 위-왼쪽 순으로 정렬해서 첫번째 생선을 선택하고 토탈 시간 추가
@@ -22,6 +24,7 @@ import java.util.*;
  * 메모리 	시간
  * 14464	140
  */
+
 public class BaekOJ16236_배문규 {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringBuilder sb = new StringBuilder();
