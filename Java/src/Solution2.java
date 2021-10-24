@@ -20,7 +20,7 @@ public class Solution2 {
 	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		int T = Integer.parseInt(br.readLine());
-	next_T :for (int test_case = 1; test_case <= T; test_case++)
+ next_T:for (int test_case = 1; test_case <= T; test_case++)
 		{
 			N = Integer.parseInt(br.readLine());
 			works = new Work[N+1];
