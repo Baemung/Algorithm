@@ -66,6 +66,7 @@ public class BaekOJ1213_배문규 {
 			
 			// 홀수개인 알파벳이 존재하는 문제열이었다면 중간에 해당 알파벳 추가
 			if(cnt == 1) sbFront.append((char)(idx+65));
+			
 			// 뒤에 문자열을 뒤집어서 앞에 문자열에 붙혀 줌으로써 펠린드롬 완성
 			System.out.println(sbFront.append(sbBack.reverse()));
 		}
